@@ -13,7 +13,7 @@ let Header = () => {
   const [btn, setbtn] = useState("Login");
   const status = useOnlineStatus();
   const data = useContext(UserContext);
-  const { dummyData, changeDummyData } = data;
+  // const { dummyData, changeDummyData } = data;
   // let { myName } = dummyData;
   const themeData = useSelector((store) => store.themeChanger.theme);
   const dispatch = useDispatch();

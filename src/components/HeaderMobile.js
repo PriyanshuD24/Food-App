@@ -1,10 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useDispatch, useSelector } from "react-redux";
 import { toogleTheme } from "../redux/themeSlice";
 import { darkTheme, lightTheme } from "../utils/cdn_url";
+import { AuthContext, app } from "../config/firebase";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 const HeaderMobile = () => {
   const [btn, setbtn] = useState("Login");
   const status = useOnlineStatus();
@@ -16,7 +18,20 @@ const HeaderMobile = () => {
   // console.log(dummyData);
   let cartItems = useSelector((store) => store.cart.items); // cartItems = [] (initialstate.items)
   // console.log(cartItems);
+  const firebase = useContext(AuthContext);
+  const [isUserLoggedIn, setisUserLoggedIn] = useState(null);
+  const auth = getAuth(app);
+  useEffect(() => {
+    console.log("header use effect called");
 
+    onAuthStateChanged(auth, (user) => {
+      console.log("header on auth change run");
+      if (user != isUserLoggedIn) {
+        console.log("header ", user, user?.displayName);
+        setisUserLoggedIn(user);
+      } else setisUserLoggedIn(null);
+    });
+  }, []);
   function handleThemeClick() {
     console.log(themeData);
     //themeData=="light" ? dispatch(toogleTheme("dark")) : dispatch(toogleTheme("light"));
@@ -32,7 +47,7 @@ const HeaderMobile = () => {
   return (
     <div>
       <ul className=" md:hidden flex flex-col items-center gap-8 lg:gap-10 " id="list">
-        {myName != "Default" && <li>Hey, {myName} </li>}
+        {isUserLoggedIn?.displayName && <li>Hey, {isUserLoggedIn?.displayName} </li>}
         <li>
           <button className="w-8 " onClick={handleThemeClick}>
             <img src={themeData == "light" ? darkTheme : lightTheme} />
@@ -69,23 +84,26 @@ const HeaderMobile = () => {
             <span className="font-bold">({cartItems.length})</span>
           </Link>
         </li>
-        <Link to={btn == "Login" ? "/login" : "/"}>
-          <li
-            className=" hover:cursor-pointer bg-[#F16667] hover:bg-[#dd4747] px-3 text-white py-1
-            rounded-lg "
-            onClick={() => {
-              if (btn === "Login") {
-                return setbtn("Logout");
-              } else {
-                changeDummyData("Default");
-
-                return setbtn("Login");
-              }
-            }}
-          >
-            {btn}
-          </li>
-        </Link>
+        <li>
+          {isUserLoggedIn?.displayName ? (
+            <button
+              className=" hover:cursor-pointer bg-[#F16667] hover:bg-[#dd4747]  text-white hover:shadow-sm px-4 py-1.5 dark:bg-[#dd4747]  dark:hover:bg-[#F16667]
+            rounded transition duration-300 ease-in-out "
+              onClick={() => firebase.signout()}
+            >
+              Logout
+            </button>
+          ) : (
+            <Link to="/login">
+              <button
+                className=" hover:cursor-pointer bg-[#F16667] hover:bg-[#dd4747]  text-white hover:shadow-sm px-4 py-1.5 dark:bg-[#dd4747]  dark:hover:bg-[#F16667]
+            rounded transition duration-300 ease-in-out "
+              >
+                Login
+              </button>{" "}
+            </Link>
+          )}
+        </li>
       </ul>
     </div>
   );
