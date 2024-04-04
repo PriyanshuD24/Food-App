@@ -1,0 +1,98 @@
+{
+    "info": {
+        "id": "21986",
+        "name": "Dark Brown",
+        "cloudinaryImageId": "mzdetw2s1ihmpiegkhyl",
+        "locality": "Shopping Centre Market",
+        "areaName": "Sector 15",
+        "costForTwo": "₹250 for two",
+        "cuisines": [
+            "Italian-American",
+            "Continental",
+            "Burgers",
+            "Pizzas",
+            "Pastas",
+            "Chinese",
+            "Beverages",
+            "Salads",
+            "Asian",
+            "Healthy Food",
+            "Fast Food",
+            "Chaat",
+            "Snacks",
+            "Desserts",
+            "American",
+            "Italian",
+            "Momos",
+            "Rolls & Wraps",
+            "Cafe"
+        ],
+        "avgRating": 4.3,
+        "parentId": "16162",
+        "avgRatingString": "4.3",
+        "totalRatingsString": "10K+",
+        "sla": {
+            "deliveryTime": 31,
+            "lastMileTravel": 1.8,
+            "serviceability": "SERVICEABLE",
+            "slaString": "30-35 mins",
+            "lastMileTravelString": "1.8 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2024-03-28 00:00:00",
+            "opened": true
+        },
+        "badges": {},
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {},
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "₹125 OFF",
+            "subHeader": "ABOVE ₹249",
+            "discountTag": "FLAT DEAL",
+            "discountCalloutInfo": {
+                "message": "Free Delivery",
+                "logoCtx": {
+                    "logo": "v1655895371/free_delivery_logo_hqipbo.png"
+                }
+            }
+        },
+        "orderabilityCommunication": {
+            "title": {},
+            "subTitle": {},
+            "message": {},
+            "customIcon": {}
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {}
+    },
+    "analytics": {
+        "context": "seo-data-b7c8153b-9dde-41da-ab1e-6c4ea6e5533a"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/restaurants/dark-brown-shopping-centre-market-sector-15-faridabad-21986",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+    },
+    "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}
+
+
+
+
